@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes Machine</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script>
+        const QUOTEBANK = [
+            {
+                quote: "When the power of love overcomes the love of power, the world will know peace.",
+                author: "Jimi Hendrix"
+            }, {
+                quote: "How well i have learned that there is no fence sit on between heaven and hell. There is a deep, wide gulf, a chasm, and in that chasm is no place for any man.",
+                author: "Johnny Cash"
+            }, {
+                quote: "Don't you mind people grinnin' in your face.",
+                author: "Son House"
+            }
+        ]
+
+        window.onload = init;
+        function init() {
+            generateQuote()
+        }
+
+        function generateQuote() {
+            let quoteSize = QUOTEBANK.length;
+            let randomIndex = Math.floor(Math.random() * quoteSize)
+            let randomQuoteData = QUOTEBANK[randomIndex];
+
+            let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="
+            twitterLink += "%22If%20you%20look%20at%20what%20you%20have%20in%20life%2C%20you%E2%80%"
+            twitterLink += "99ll%20always%20have%20more.%20If%20you%20look%20at%20what%20you%20don%E2%80%99t%20have%20in%20life%2C%20you%E2%80%99ll%20never%20have%20enough.%22%20Oprah%20Winfrey"
+
+            document.getElementById("tweet-quote").href = twitterLink;
+            document.getElementById("text").innerText = randomQuoteData.quote;
+            document.getElementById("author").innerText = randomQuoteData.author;
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row p-3">
+            <div class="col-md-6 offset-md-2">
+    <wrapper id="quote-box">
+        <div class="card">
+            <div class="card-header text-center">
+Random Quote Machine
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+              <div id="text"></div></h5>
+              <div id="author"></div>
+              </p>
+              <div class="d-grid gap-2">
+              <button id="new-quote" onclick="generateQuote();" class="btn btn-success">New Quote </button>
+    <a href="a" id="tweet-quote" target="_blank" class="btn btn-primary">Tweet Quote</a>
+</div>
+            </div>
+          </div>
+</wrapper>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
